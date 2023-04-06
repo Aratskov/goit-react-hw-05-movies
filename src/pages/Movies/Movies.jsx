@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getSearchMovies } from "../../components/Service/ServiceApi";
 import MarkupMovies from "components/Markup/Markup";
 import { Gallery } from "components/Cast/Cast.styled";
@@ -8,7 +8,6 @@ const Moves = () => {
   const [storage, setStorage] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams("");
   const filterPage = searchParams.get("query") ?? "";
-  const location = useLocation();
 
   useEffect(() => {
     if (!filterPage) {

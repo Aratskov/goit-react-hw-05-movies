@@ -1,10 +1,10 @@
 import { getMoviesSearch } from "../../components/Service/ServiceApi";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import MarkupMovies from "components/Markup/Markup";
+import { Gallery } from "components/Cast/Cast.styled";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
     getMoviesSearch()
@@ -16,16 +16,12 @@ const Home = () => {
 
   return (
     <main>
-      <h1>Trending today</h1>
-      <ul>
-        {movies.map(({ id, original_title }) => (
-          <li key={id}>
-            <Link to={`/movies/${id}`} state={{ page: location }}>
-              {original_title}
-            </Link>
-          </li>
+      <h1 style={{textAlign:"center",fontSize:"40px"}}>Trending today</h1>
+      <Gallery>
+        {movies.map(movie => (
+        < MarkupMovies movies={movie} key={movie.id}/>
         ))}
-      </ul>
+      </Gallery>
     </main>
   );
 };

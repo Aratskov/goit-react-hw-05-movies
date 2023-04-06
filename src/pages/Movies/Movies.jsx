@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { getSearchMovies } from "../../components/Service/ServiceApi";
-import { Link } from "react-router-dom";
+import MarkupMovies from "components/Markup/Markup";
+import { Gallery } from "components/Cast/Cast.styled";
 
 const Moves = () => {
   const [storage, setStorage] = useState([]);
@@ -30,16 +31,17 @@ const Moves = () => {
         <input type="text" name="movies" defaultValue={filterPage} />
         <button type="submit">Go</button>
       </form>
-      <ul>
+      <Gallery>
         {storage &&
-          storage.map(({ id, original_title }) => (
-            <li key={id}>
+          storage.map(movie => (
+            < MarkupMovies movies={movie} key={movie.id}/>
+            /* <li key={id}>
               <Link to={`${id}`} state={{ page: location }}>
                 {original_title}
               </Link>
-            </li>
+            </li> */
           ))}
-      </ul>
+      </Gallery>
     </main>
   );
 };

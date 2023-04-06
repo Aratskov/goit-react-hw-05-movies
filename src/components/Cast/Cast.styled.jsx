@@ -14,6 +14,7 @@ export const Gallery = styled.ul`
   & img {
     max-width: 100%;
     height: auto;
+
   }
 
   & p {

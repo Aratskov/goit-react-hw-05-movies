@@ -51,7 +51,7 @@ export const WrapBtn = styled.ul`
 
 export const StyleLink = styled(NavLink)`
   display: block;
-  min-width: 160px;
+  min-width: 26vw;
   padding: 10px 0;
 
   text-decoration: none;

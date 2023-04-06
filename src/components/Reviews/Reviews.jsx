@@ -11,7 +11,7 @@ const Reviews = () => {
     getMovieReviers(Number(moviesId))
       .then(setReviews)
       .catch((error) => console.log(error.message));
-  }, []);
+  }, [moviesId]);
 
   if (!reviews) return;
 
